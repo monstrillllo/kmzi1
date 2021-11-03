@@ -1,4 +1,4 @@
-from random import randbytes, randint
+from random import randbytes, randint, SystemRandom
 from os import urandom
 import math
 
@@ -11,11 +11,11 @@ def crypto_random(length: int = 100) -> bytes:
     return urandom(length)
 
 
-def generator(length: int = 100):
+def generator(length: int = 100) -> list:
     res = []
-    xt = randint(0, 9)
-    xt1 = randint(0, 9)
-    xt2 = randint(0, 9)
+    xt = SystemRandom().randrange(0, 9)
+    xt1 = SystemRandom().randrange(0, 9)
+    xt2 = SystemRandom().randrange(0, 9)
     for _ in range(length):
         x = (1176 * xt + 1476 * xt1 + 1776 * xt2) % (2 ** 32 - 5)
         xt2, xt1, xt = xt1, xt, x
