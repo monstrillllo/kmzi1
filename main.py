@@ -27,7 +27,8 @@ def main():
     with open('./result1', 'wb') as file:
         file.write(default_random(200))
         # file.write(crypto_random(200))
-        # file.write(generator(200))
+        # for i in generator(2900000):
+        #     file.write(i)
         print('Done')
     # print(default_random(200))
     # print(crypto_random(200))
